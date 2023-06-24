@@ -1,0 +1,4 @@
+baseURL = 'https://leojin.com/'
+languageCode = 'en-us'
+title = 'LeoJin'
+theme = 'terminal'
