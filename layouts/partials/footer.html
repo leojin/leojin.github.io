@@ -1,20 +1,35 @@
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8RPVL3JBR4"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+<footer class="footer">
+  <div class="footer__inner">
+    {{ if $.Site.Copyright }}
+      <div class="copyright copyright--user">
+        <span>{{ $.Site.Copyright | safeHTML }}</span>
+    {{ else }}
+      <div class="copyright">
+        <span>© {{ now.Year }} Powered by <a href="https://gohugo.io">Hugo</a></span>
+    {{ end }}
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
 
-    gtag('config', 'G-8RPVL3JBR4');
-</script>
-
-<!-- Baidu tag -->
-<script>
+  <!-- Baidu tag -->
+  <script>
     var _hmt = _hmt || [];
     (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?3bf959628e14e328d9e6a285b85f751a";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3bf959628e14e328d9e6a285b85f751a";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
     })();
-</script>
+  </script>
+
+</footer>
+
+{{ $menu := resources.Get "js/menu.js" | js.Build }}
+{{ $prism := resources.Get "js/prism.js" | js.Build }}
+
+{{ $bundle := slice $menu $prism | resources.Concat "bundle.js" | resources.Minify }}
+
+<script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script>
+
+<!-- Extended footer section-->
+{{ partial "extended_footer.html" . }}

@@ -5,6 +5,7 @@ languageCode = "en-us"
 theme = "terminal"
 paginate = 5
 publishDir = "docs"
+googleAnalytics = "G-8RPVL3JBR4"
 
 [params]
 # dir name of your main content (default is `content/posts`).
@@ -18,7 +19,7 @@ themeColor = "blue"
 showMenuItems = 10
 
 # show selector to switch language
-showLanguageSelector = true
+showLanguageSelector = false
 
 # set theme to full screen width
 fullWidthTheme = false
