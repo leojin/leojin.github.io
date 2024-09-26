@@ -13,46 +13,9 @@
       <pubDate>Sun, 25 Jun 2023 01:14:27 +0800</pubDate>
       
       <guid>/posts/hello-world/</guid>
-      <description>Now it&amp;rsquo;s time to say goodbye to WordPress. I have bought a virtual machine for several years on Tencent Cloud(1Core/1G/1Mbps). It&amp;rsquo;s totally enough for my site with no comments. So, Since there&amp;rsquo;s no comment, why do I need a vm to host a dynamic site?
-😔What I need is just a static page.😔
-Here are several tools I used to make this change:
-Tools Description Bitnami Wordpress It contains everything you need to launch a WordPress, such as httpd,mysql,php.</description>
-      <content>&lt;p&gt;Now it&amp;rsquo;s time to say goodbye to WordPress. I have bought a virtual machine for several years on Tencent Cloud(1Core/1G/1Mbps). It&amp;rsquo;s totally enough for my site with no comments. So, Since there&amp;rsquo;s no comment, why do I need a vm to host a dynamic site?&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;😔What I need is just a static page.😔&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Here are several tools I used to make this change:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Tools&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://bitnami.com/stack/wordpress&#34;&gt;Bitnami Wordpress&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;It contains everything you need to launch a WordPress, such as httpd,mysql,php.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://servmask.com&#34;&gt;All-in-One Wp Migration&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Export the previous data and import them into the new WordPress instance.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://pages.github.com&#34;&gt;github.io&lt;/a&gt; and &lt;a href=&#34;https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site&#34;&gt;github custom domain&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;You can use github.io to host the content of the site and it&amp;rsquo;s custom domain feature keep my domain &lt;code&gt;leojin.com&lt;/code&gt; continually working. This site&amp;rsquo;s repo is &lt;a href=&#34;https://github.com/leojin/leojin.github.io&#34;&gt;here&lt;/a&gt;.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;Offical site: The world’s fastest framework for building websites.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;a href=&#34;https://github.com/panr/hugo-theme-terminal&#34;&gt;Terminal&lt;/a&gt;&lt;/td&gt;
-&lt;td&gt;A hugo theme which is what you see now.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Below is my local replica preview. I won&amp;rsquo;t miss u, so it has been shut down forever.
-&lt;img src=&#34;Screenshot%202023-06-25%20at%2016.40.04.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Bye WordPress.&lt;/p&gt;
+      <description>&lt;p&gt;Bye WordPress.&lt;/p&gt;
+&lt;p&gt;Hello Hugo &amp;amp; Github.io.&lt;/p&gt;</description>
+      <content>&lt;p&gt;Bye WordPress.&lt;/p&gt;
 &lt;p&gt;Hello Hugo &amp;amp; Github.io.&lt;/p&gt;
 </content>
     </item>

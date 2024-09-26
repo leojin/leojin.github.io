@@ -6,10 +6,9 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Now it&amp;rsquo;s time to say goodbye to WordPress. I have bought a virtual machine for several years on Tencent Cloud(1Core/1G/1Mbps). It&amp;rsquo;s totally enough for my site with no comments. So, Since there&amp;rsquo;s no comment, why do I need a vm to host a dynamic site?
-😔What I need is just a static page.😔
-Here are several tools I used to make this change:
-Tools Description Bitnami Wordpress It contains everything you need to launch a WordPress, such as httpd,mysql,php." />
+<meta name="description" content="Bye WordPress.
+Hello Hugo &amp; Github.io.
+" />
 <meta name="keywords" content="LeoJin" />
 
   <meta name="robots" content="noodp" />
@@ -17,17 +16,20 @@ Tools Description Bitnami Wordpress It contains everything you need to launch a 
 <link rel="canonical" href="/posts/hello-world/" />
 
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8RPVL3JBR4"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-8RPVL3JBR4', { 'anonymize_ip': false });
-}
-</script>
-
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RPVL3JBR4"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8RPVL3JBR4');
+        }
+      </script>
 
 
 
@@ -60,10 +62,9 @@ if (!doNotTrack) {
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Hello World">
-<meta property="og:description" content="Now it&amp;rsquo;s time to say goodbye to WordPress. I have bought a virtual machine for several years on Tencent Cloud(1Core/1G/1Mbps). It&amp;rsquo;s totally enough for my site with no comments. So, Since there&amp;rsquo;s no comment, why do I need a vm to host a dynamic site?
-😔What I need is just a static page.😔
-Here are several tools I used to make this change:
-Tools Description Bitnami Wordpress It contains everything you need to launch a WordPress, such as httpd,mysql,php." />
+<meta property="og:description" content="Bye WordPress.
+Hello Hugo &amp; Github.io.
+" />
 <meta property="og:url" content="/posts/hello-world/" />
 <meta property="og:site_name" content="LeoJin" />
 
@@ -111,10 +112,6 @@ Tools Description Bitnami Wordpress It contains everything you need to launch a 
     <ul class="menu__dropdown">
       
         
-          <li><a href="/cv">CV</a></li>
-        
-      
-        
           <li><a href="https://discord.com/channels/1067422319993180200/1122443570847154321">Discord</a></li>
         
       
@@ -124,6 +121,10 @@ Tools Description Bitnami Wordpress It contains everything you need to launch a 
       
         
           <li><a href="https://www.instagram.com/leojin0701">Instagram</a></li>
+        
+      
+        
+          <li><a href="/resume">Resume</a></li>
         
       
       
@@ -140,10 +141,6 @@ Tools Description Bitnami Wordpress It contains everything you need to launch a 
     
       
         
-          <li><a href="/cv" >CV</a></li>
-        
-      
-        
           <li><a href="https://discord.com/channels/1067422319993180200/1122443570847154321" >Discord</a></li>
         
       
@@ -153,6 +150,10 @@ Tools Description Bitnami Wordpress It contains everything you need to launch a 
       
         
           <li><a href="https://www.instagram.com/leojin0701" >Instagram</a></li>
+        
+      
+        
+          <li><a href="/resume" >Resume</a></li>
         
       
       
@@ -183,42 +184,7 @@ Tools Description Bitnami Wordpress It contains everything you need to launch a 
   
 
   <div class="post-content"><div>
-        <p>Now it&rsquo;s time to say goodbye to WordPress. I have bought a virtual machine for several years on Tencent Cloud(1Core/1G/1Mbps). It&rsquo;s totally enough for my site with no comments. So, Since there&rsquo;s no comment, why do I need a vm to host a dynamic site?</p>
-<p><code>😔What I need is just a static page.😔</code></p>
-<p>Here are several tools I used to make this change:</p>
-<table>
-<thead>
-<tr>
-<th>Tools</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://bitnami.com/stack/wordpress">Bitnami Wordpress</a></td>
-<td>It contains everything you need to launch a WordPress, such as httpd,mysql,php.</td>
-</tr>
-<tr>
-<td><a href="https://servmask.com">All-in-One Wp Migration</a></td>
-<td>Export the previous data and import them into the new WordPress instance.</td>
-</tr>
-<tr>
-<td><a href="https://pages.github.com">github.io</a> and <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site">github custom domain</a></td>
-<td>You can use github.io to host the content of the site and it&rsquo;s custom domain feature keep my domain <code>leojin.com</code> continually working. This site&rsquo;s repo is <a href="https://github.com/leojin/leojin.github.io">here</a>.</td>
-</tr>
-<tr>
-<td><a href="https://gohugo.io">Hugo</a></td>
-<td>Offical site: The world’s fastest framework for building websites.</td>
-</tr>
-<tr>
-<td><a href="https://github.com/panr/hugo-theme-terminal">Terminal</a></td>
-<td>A hugo theme which is what you see now.</td>
-</tr>
-</tbody>
-</table>
-<p>Below is my local replica preview. I won&rsquo;t miss u, so it has been shut down forever.
-<img src="Screenshot%202023-06-25%20at%2016.40.04.png" alt=""></p>
-<p>Bye WordPress.</p>
+        <p>Bye WordPress.</p>
 <p>Hello Hugo &amp; Github.io.</p>
 
       </div></div>
@@ -240,7 +206,7 @@ Tools Description Bitnami Wordpress It contains everything you need to launch a 
   <div class="footer__inner">
     
       <div class="copyright">
-        <span>© 2023 Powered by <a href="https://gohugo.io">Hugo</a></span>
+        <span>© 2024 Powered by <a href="https://gohugo.io">Hugo</a></span>
     
       <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
       </div>

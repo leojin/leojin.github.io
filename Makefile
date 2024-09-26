@@ -1,5 +1,5 @@
 debug:
-	~/go/bin/hugo server --buildDrafts
+	hugo server --buildDrafts
 
 deploy:
-	~/go/bin/hugo
+	hugo
