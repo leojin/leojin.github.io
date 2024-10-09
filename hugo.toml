@@ -102,10 +102,3 @@ url = "http://github.com/leojin"
 identifier = "Discord"
 name = "Discord"
 url = "https://discord.com/channels/1067422319993180200/1122443570847154321"
-
-[[languages.en.menu.main]]
-identifier = "Resume"
-name = "Resume"
-url = "/resume"
-
-
