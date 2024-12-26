@@ -95,7 +95,7 @@ url = "https://www.instagram.com/leojin0701"
 
 [[languages.en.menu.main]]
 identifier = "Github Issues"
-name = "Github Isseus"
+name = "Github Issues"
 url = "https://github.com/leojin/leojin.github.io/issues"
 
 [[languages.en.menu.main]]
