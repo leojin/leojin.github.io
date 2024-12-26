@@ -2,4 +2,4 @@ debug:
 	hugo server --buildDrafts
 
 deploy:
-	hugo
+	rm -rf docs && hugo && cp CNAME docs/CNAME

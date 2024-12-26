@@ -8,11 +8,11 @@
     <language>en</language>
     <lastBuildDate>Thu, 26 Dec 2024 00:05:36 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>2024 12 26</title>
-      <link>/posts/2024-12-26/</link>
+      <title>2024 12 26 Google Oauth</title>
+      <link>/posts/2024-12-26-google-oauth/</link>
       <pubDate>Thu, 26 Dec 2024 00:05:36 +0800</pubDate>
       
-      <guid>/posts/2024-12-26/</guid>
+      <guid>/posts/2024-12-26-google-oauth/</guid>
       <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
 &lt;h1 id=&#34;一准备&#34;&gt;一、准备&lt;/h1&gt;
 &lt;h2 id=&#34;1google-console-search&#34;&gt;1、Google Console Search&lt;/h2&gt;
@@ -31,9 +31,9 @@
 &lt;li&gt;流程完成后，获取到&lt;code&gt;Client ID&lt;/code&gt;和&lt;code&gt;Client Secret&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;二登录流程示意&#34;&gt;二、登录流程示意&lt;/h1&gt;
-&lt;p&gt;&lt;img alt=&#34;流程示意&#34; src=&#34;/posts/2024-12-26/images/login-google.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;流程示意&#34; src=&#34;/posts/2024-12-26-google-oauth/images/login-google.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;1-前端sdk接入&#34;&gt;1、 前端SDK接入&lt;/h2&gt;
-&lt;p&gt;&lt;img alt=&#34;登录按钮&#34; src=&#34;/posts/2024-12-26/images/login-google-button.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;登录按钮&#34; src=&#34;/posts/2024-12-26-google-oauth/images/login-google-button.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;接入上述按钮，参考：&lt;a href=&#34;https://www.npmjs.com/package/@react-oauth/google&#34;&gt;@react-oauth/google&lt;/a&gt;，过程中需要传入&lt;code&gt;Client ID&lt;/code&gt;。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; {&lt;span style=&#34;color:#a6e22e&#34;&gt;GoogleOAuthProvider&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;GoogleLogin&lt;/span&gt;} &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;@react-oauth/google&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -76,9 +76,9 @@
 &lt;li&gt;流程完成后，获取到&lt;code&gt;Client ID&lt;/code&gt;和&lt;code&gt;Client Secret&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;二登录流程示意&#34;&gt;二、登录流程示意&lt;/h1&gt;
-&lt;p&gt;&lt;img alt=&#34;流程示意&#34; src=&#34;/posts/2024-12-26/images/login-google.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;流程示意&#34; src=&#34;/posts/2024-12-26-google-oauth/images/login-google.png&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;1-前端sdk接入&#34;&gt;1、 前端SDK接入&lt;/h2&gt;
-&lt;p&gt;&lt;img alt=&#34;登录按钮&#34; src=&#34;/posts/2024-12-26/images/login-google-button.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;登录按钮&#34; src=&#34;/posts/2024-12-26-google-oauth/images/login-google-button.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;接入上述按钮，参考：&lt;a href=&#34;https://www.npmjs.com/package/@react-oauth/google&#34;&gt;@react-oauth/google&lt;/a&gt;，过程中需要传入&lt;code&gt;Client ID&lt;/code&gt;。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; {&lt;span style=&#34;color:#a6e22e&#34;&gt;GoogleOAuthProvider&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;GoogleLogin&lt;/span&gt;} &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;@react-oauth/google&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;

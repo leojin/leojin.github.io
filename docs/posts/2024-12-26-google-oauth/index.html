@@ -2,20 +2,16 @@
 <html lang="en">
 <head>
   
-    <title>2024 12 26 :: LeoJin</title>
+    <title>2024 12 26 Google Oauth :: LeoJin</title>
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=" 一、准备 1、Google Console Search 证明网站所有权，以使用Google Oauth Client发布到生产环境。 申请入口
-2、Google Oauth Client 官方文档
-申请入口：Google Cloud Platform，进入APIs &amp; Services。 左侧导航栏选择Credentials，点击Create credentials，选择OAuth client ID。 User Type选择External（对外公开网站，允许任意用户登录） Application Type，这里选择Web application 流程完成后，获取到Client ID和Client Secret 二、登录流程示意 1、 前端SDK接入 接入上述按钮，参考：@react-oauth/google，过程中需要传入Client ID。
-import {GoogleOAuthProvider, GoogleLogin} from &#39;@react-oauth/google&#39;; const GoogleLoginComponent = () =&gt; { const onSuccess = async (response) =&gt; { console.log(response); } return ( &lt;GoogleOAuthProvider clientId=&#34;Your Oauth ClientID&#34;&gt; &lt;GoogleLogin onSuccess={onSuccess} /&gt; &lt;/GoogleOAuthProvider&gt; ); }; 2、 服务端登录接口主要逻辑 请求https://oauth2.googleapis.com/tokeninfo, 通过前端传入的Credential，获取用户基本信息，其中sub可作为谷歌用户ID，见官方说明。 根据sub，查询用户（触发新老用户逻辑）。 处理Session，返回业务登录凭据。 三、开发&amp;发布 1、 开发测试 在Google Auth Platform/Client ID for Web application中修改Authorized JavaScript origins，填写本地开发环境和测试环境的地址（支持http://127.0.0.1:xxxx）
-" />
+<meta name="description" content="接入Google Oauth登录，实现用户登录功能" />
 <meta name="keywords" content="谷歌登录, Oauth" />
 
   <meta name="robots" content="noodp" />
 
-<link rel="canonical" href="/posts/2024-12-26/" />
+<link rel="canonical" href="/posts/2024-12-26-google-oauth/" />
 
 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-8RPVL3JBR4"></script>
@@ -65,13 +61,9 @@ import {GoogleOAuthProvider, GoogleLogin} from &#39;@react-oauth/google&#39;; co
 
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="2024 12 26">
-<meta property="og:description" content=" 一、准备 1、Google Console Search 证明网站所有权，以使用Google Oauth Client发布到生产环境。 申请入口
-2、Google Oauth Client 官方文档
-申请入口：Google Cloud Platform，进入APIs &amp; Services。 左侧导航栏选择Credentials，点击Create credentials，选择OAuth client ID。 User Type选择External（对外公开网站，允许任意用户登录） Application Type，这里选择Web application 流程完成后，获取到Client ID和Client Secret 二、登录流程示意 1、 前端SDK接入 接入上述按钮，参考：@react-oauth/google，过程中需要传入Client ID。
-import {GoogleOAuthProvider, GoogleLogin} from &#39;@react-oauth/google&#39;; const GoogleLoginComponent = () =&gt; { const onSuccess = async (response) =&gt; { console.log(response); } return ( &lt;GoogleOAuthProvider clientId=&#34;Your Oauth ClientID&#34;&gt; &lt;GoogleLogin onSuccess={onSuccess} /&gt; &lt;/GoogleOAuthProvider&gt; ); }; 2、 服务端登录接口主要逻辑 请求https://oauth2.googleapis.com/tokeninfo, 通过前端传入的Credential，获取用户基本信息，其中sub可作为谷歌用户ID，见官方说明。 根据sub，查询用户（触发新老用户逻辑）。 处理Session，返回业务登录凭据。 三、开发&amp;发布 1、 开发测试 在Google Auth Platform/Client ID for Web application中修改Authorized JavaScript origins，填写本地开发环境和测试环境的地址（支持http://127.0.0.1:xxxx）
-" />
-<meta property="og:url" content="/posts/2024-12-26/" />
+<meta property="og:title" content="2024 12 26 Google Oauth">
+<meta property="og:description" content="接入Google Oauth登录，实现用户登录功能" />
+<meta property="og:url" content="/posts/2024-12-26-google-oauth/" />
 <meta property="og:site_name" content="LeoJin" />
 
   
@@ -167,7 +159,7 @@ import {GoogleOAuthProvider, GoogleLogin} from &#39;@react-oauth/google&#39;; co
     
 <article class="post">
   <h1 class="post-title">
-    <a href="/posts/2024-12-26/">2024 12 26</a>
+    <a href="/posts/2024-12-26-google-oauth/">2024 12 26 Google Oauth</a>
   </h1>
   <div class="post-meta"><time class="post-date">2024-12-26</time><span class="post-author">leojin</span></div>
 
@@ -202,9 +194,9 @@ import {GoogleOAuthProvider, GoogleLogin} from &#39;@react-oauth/google&#39;; co
 <li>流程完成后，获取到<code>Client ID</code>和<code>Client Secret</code></li>
 </ul>
 <h1 id="二登录流程示意">二、登录流程示意<a href="#二登录流程示意" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
-<p><img alt="流程示意" src="/posts/2024-12-26/images/login-google.png"></p>
+<p><img alt="流程示意" src="/posts/2024-12-26-google-oauth/images/login-google.png"></p>
 <h2 id="1-前端sdk接入">1、 前端SDK接入<a href="#1-前端sdk接入" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p><img alt="登录按钮" src="/posts/2024-12-26/images/login-google-button.png"></p>
+<p><img alt="登录按钮" src="/posts/2024-12-26-google-oauth/images/login-google-button.png"></p>
 <p>接入上述按钮，参考：<a href="https://www.npmjs.com/package/@react-oauth/google">@react-oauth/google</a>，过程中需要传入<code>Client ID</code>。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">GoogleOAuthProvider</span>, <span style="color:#a6e22e">GoogleLogin</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@react-oauth/google&#39;</span>;
 </span></span><span style="display:flex;"><span>

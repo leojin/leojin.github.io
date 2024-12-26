@@ -1,12 +1,12 @@
 +++
-title = "2024 12 26"
+title = "2024 12 26 Google Oauth"
 date = "2024-12-26T00:05:36+08:00"
 author = "leojin"
 authorTwitter = "" #do not include @
 cover = ""
 tags = ["开发"]
 keywords = ["谷歌登录", "Oauth"]
-description = ""
+description = "接入Google Oauth登录，实现用户登录功能"
 showFullContent = false
 readingTime = false
 hideComments = false

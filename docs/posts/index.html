@@ -162,7 +162,7 @@
     
       <article class="post on-list">
         <h1 class="post-title">
-          <a href="/posts/2024-12-26/">2024 12 26</a>
+          <a href="/posts/2024-12-26-google-oauth/">2024 12 26 Google Oauth</a>
         </h1>
         <div class="post-meta"><time class="post-date">2024-12-26</time><span class="post-author">leojin</span></div>
 
@@ -179,57 +179,13 @@
 
         <div class="post-content">
           
-            <h1 id="heading"></h1>
-<h1 id="一准备">一、准备</h1>
-<h2 id="1google-console-search">1、Google Console Search</h2>
-<p>证明网站所有权，以使用Google Oauth Client发布到生产环境。
-<a href="https://search.google.com/search-console">申请入口</a></p>
-<h2 id="2google-oauth-client">2、Google Oauth Client</h2>
-<p><a href="https://developers.google.com/identity/protocols/oauth2">官方文档</a></p>
-<ul>
-<li>申请入口：<a href="https://console.cloud.google.com/">Google Cloud Platform</a>，进入<code>APIs &amp; Services</code>。</li>
-<li>左侧导航栏选择<code>Credentials</code>，点击<code>Create credentials</code>，选择<code>OAuth client ID</code>。
-<ul>
-<li>User Type选择<code>External</code>（对外公开网站，允许任意用户登录）</li>
-<li>Application Type，这里选择<code>Web application</code></li>
-</ul>
-</li>
-<li>流程完成后，获取到<code>Client ID</code>和<code>Client Secret</code></li>
-</ul>
-<h1 id="二登录流程示意">二、登录流程示意</h1>
-<p><img alt="流程示意" src="/posts/2024-12-26/images/login-google.png"></p>
-<h2 id="1-前端sdk接入">1、 前端SDK接入</h2>
-<p><img alt="登录按钮" src="/posts/2024-12-26/images/login-google-button.png"></p>
-<p>接入上述按钮，参考：<a href="https://www.npmjs.com/package/@react-oauth/google">@react-oauth/google</a>，过程中需要传入<code>Client ID</code>。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsx" data-lang="jsx"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">GoogleOAuthProvider</span>, <span style="color:#a6e22e">GoogleLogin</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@react-oauth/google&#39;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">GoogleLoginComponent</span> <span style="color:#f92672">=</span> () =&gt; {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">onSuccess</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">response</span>) =&gt; {
-</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">response</span>);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (
-</span></span><span style="display:flex;"><span>        &lt;<span style="color:#f92672">GoogleOAuthProvider</span> <span style="color:#a6e22e">clientId</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Your Oauth ClientID&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>            &lt;<span style="color:#f92672">GoogleLogin</span>
-</span></span><span style="display:flex;"><span>                <span style="color:#a6e22e">onSuccess</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">onSuccess</span>}
-</span></span><span style="display:flex;"><span>            /&gt;
-</span></span><span style="display:flex;"><span>        &lt;/<span style="color:#f92672">GoogleOAuthProvider</span>&gt;
-</span></span><span style="display:flex;"><span>    );
-</span></span><span style="display:flex;"><span>};
-</span></span></code></pre></div><h2 id="2-服务端登录接口主要逻辑">2、 服务端登录接口主要逻辑</h2>
-<ul>
-<li>请求<code>https://oauth2.googleapis.com/tokeninfo</code>, 通过前端传入的<code>Credential</code>，获取用户基本信息，其中sub可作为谷歌用户ID，见<a href="https://cloud.google.com/docs/authentication/token-types?hl=zh-cn#id">官方说明</a>。</li>
-<li>根据sub，查询用户（触发新老用户逻辑）。</li>
-<li>处理Session，返回业务登录凭据。</li>
-</ul>
-<h1 id="三开发发布">三、开发&amp;发布</h1>
-<h2 id="1-开发测试">1、 开发测试</h2>
-<p>在<a href="https://console.cloud.google.com/auth/clients">Google Auth Platform/Client ID for Web application</a>中修改<code>Authorized JavaScript origins</code>，填写本地开发环境和测试环境的地址（支持http://127.0.0.1:xxxx）</p>
+            接入Google Oauth登录，实现用户登录功能
           
         </div>
 
         
           <div>
-            <a class="read-more button" href="/posts/2024-12-26/">Read more →</a>
+            <a class="read-more button" href="/posts/2024-12-26-google-oauth/">Read more →</a>
           </div>
         
       </article>
