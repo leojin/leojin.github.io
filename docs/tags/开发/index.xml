@@ -8,33 +8,38 @@
     <language>en</language>
     <lastBuildDate>Thu, 26 Dec 2024 00:05:36 +0800</lastBuildDate><atom:link href="/tags/%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>2024 12 26 Google Oauth</title>
+      <title>2024 12 26 Google Oauth 前后端接入流程</title>
       <link>/posts/2024-12-26-google-oauth/</link>
       <pubDate>Thu, 26 Dec 2024 00:05:36 +0800</pubDate>
       
       <guid>/posts/2024-12-26-google-oauth/</guid>
-      <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;一准备&#34;&gt;一、准备&lt;/h1&gt;
-&lt;h2 id=&#34;1google-console-search&#34;&gt;1、Google Console Search&lt;/h2&gt;
-&lt;p&gt;证明网站所有权，以使用Google Oauth Client发布到生产环境。
-&lt;a href=&#34;https://search.google.com/search-console&#34;&gt;申请入口&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;2google-oauth-client&#34;&gt;2、Google Oauth Client&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://developers.google.com/identity/protocols/oauth2&#34;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;h1 id=&#34;一整体流程&#34;&gt;一、整体流程&lt;/h1&gt;
+&lt;p&gt;&lt;img alt=&#34;流程示意&#34; src=&#34;/posts/2024-12-26-google-oauth/images/login-google.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;二物料准备&#34;&gt;二、物料准备&lt;/h1&gt;
+&lt;h2 id=&#34;1google-oauth-client&#34;&gt;1、Google Oauth Client&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;申请入口：&lt;a href=&#34;https://console.cloud.google.com/&#34;&gt;Google Cloud Platform&lt;/a&gt;，进入&lt;code&gt;APIs &amp;amp; Services&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;左侧导航栏选择&lt;code&gt;Credentials&lt;/code&gt;，点击&lt;code&gt;Create credentials&lt;/code&gt;，选择&lt;code&gt;OAuth client ID&lt;/code&gt;。
+&lt;li&gt;目标：获取到&lt;code&gt;Client ID&lt;/code&gt;和&lt;code&gt;Client Secret&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;官方文档：&lt;a href=&#34;https://developers.google.com/identity/protocols/oauth2&#34;&gt;Oauth2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;AI参考：&lt;a href=&#34;https://chatgpt.com/share/676d7aa9-aad4-8010-beff-e1ad2fe45976&#34;&gt;ChatGPT：GCP OAuth 登录集成&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;入口：&lt;a href=&#34;https://console.cloud.google.com/&#34;&gt;Google Cloud Platform&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;User Type选择&lt;code&gt;External&lt;/code&gt;（对外公开网站，允许任意用户登录）&lt;/li&gt;
-&lt;li&gt;Application Type，这里选择&lt;code&gt;Web application&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;进入&lt;code&gt;APIs &amp;amp; Services&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;进入&lt;code&gt;Credentials&lt;/code&gt;，点击&lt;code&gt;Create credentials&lt;/code&gt;，选择&lt;code&gt;OAuth client ID&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;流程完成后，获取到&lt;code&gt;Client ID&lt;/code&gt;和&lt;code&gt;Client Secret&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;二登录流程示意&#34;&gt;二、登录流程示意&lt;/h1&gt;
-&lt;p&gt;&lt;img alt=&#34;流程示意&#34; src=&#34;/posts/2024-12-26-google-oauth/images/login-google.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2google-console-search&#34;&gt;2、Google Console Search&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;目标：证明网站所有权，用于通过Oauth发布到生产环境的平台审核。&lt;/li&gt;
+&lt;li&gt;入口：&lt;a href=&#34;https://search.google.com/search-console&#34;&gt;Google Search Console&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;三关键开发项&#34;&gt;三、关键开发项&lt;/h1&gt;
 &lt;h2 id=&#34;1-前端sdk接入&#34;&gt;1、 前端SDK接入&lt;/h2&gt;
-&lt;p&gt;&lt;img alt=&#34;登录按钮&#34; src=&#34;/posts/2024-12-26-google-oauth/images/login-google-button.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;接入上述按钮，参考：&lt;a href=&#34;https://www.npmjs.com/package/@react-oauth/google&#34;&gt;@react-oauth/google&lt;/a&gt;，过程中需要传入&lt;code&gt;Client ID&lt;/code&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;效果：&lt;img alt=&#34;登录按钮&#34; src=&#34;/posts/2024-12-26-google-oauth/images/login-google-button.png&#34;&gt;&lt;/li&gt;
+&lt;li&gt;依赖：&lt;code&gt;Oauth Client ID&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;参考：&lt;a href=&#34;https://www.npmjs.com/package/@react-oauth/google&#34;&gt;@react-oauth/google&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; {&lt;span style=&#34;color:#a6e22e&#34;&gt;GoogleOAuthProvider&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;GoogleLogin&lt;/span&gt;} &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;@react-oauth/google&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;GoogleLoginComponent&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; () =&amp;gt; {
@@ -49,37 +54,64 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;GoogleOAuthProvider&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    );
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-服务端登录接口主要逻辑&#34;&gt;2、 服务端登录接口主要逻辑&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-服务端接口&#34;&gt;2、 服务端接口&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;请求&lt;code&gt;https://oauth2.googleapis.com/tokeninfo&lt;/code&gt;, 通过前端传入的&lt;code&gt;Credential&lt;/code&gt;，获取用户基本信息，其中sub可作为谷歌用户ID，见&lt;a href=&#34;https://cloud.google.com/docs/authentication/token-types?hl=zh-cn#id&#34;&gt;官方说明&lt;/a&gt;。&lt;/li&gt;
-&lt;li&gt;根据sub，查询用户（触发新老用户逻辑）。&lt;/li&gt;
-&lt;li&gt;处理Session，返回业务登录凭据。&lt;/li&gt;
+&lt;li&gt;接收参数
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;idToken&lt;/code&gt;：前端从SDK获取的&lt;code&gt;Credentials&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;三开发发布&#34;&gt;三、开发&amp;amp;发布&lt;/h1&gt;
+&lt;/li&gt;
+&lt;li&gt;验证&lt;code&gt;Credentials&lt;/code&gt;，请求&lt;code&gt;https://oauth2.googleapis.com/tokeninfo&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;接口文档：&lt;a href=&#34;https://cloud.google.com/docs/authentication/token-types?hl=zh-cn#id&#34;&gt;官方&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;返回主要信息：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sub&lt;/code&gt;：用户ID（可做为身份识别ID）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;name&lt;/code&gt;：用户名称&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;picture&lt;/code&gt;：用户头像&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;given_name&lt;/code&gt;：用户名&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;family_name&lt;/code&gt;：用户姓氏&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;email&lt;/code&gt;：用户邮箱&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;email_verified&lt;/code&gt;：邮箱是否验证&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;aud&lt;/code&gt;：Oauth Client ID（需校验）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;exp&lt;/code&gt;：过期时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;新老用户逻辑：根据&lt;code&gt;sub&lt;/code&gt;查询用户，如果不存在则创建新用户&lt;/li&gt;
+&lt;li&gt;Session处理：返回业务登录凭据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;四开发发布&#34;&gt;四、开发&amp;amp;发布&lt;/h1&gt;
 &lt;h2 id=&#34;1-开发测试&#34;&gt;1、 开发测试&lt;/h2&gt;
 &lt;p&gt;在&lt;a href=&#34;https://console.cloud.google.com/auth/clients&#34;&gt;Google Auth Platform/Client ID for Web application&lt;/a&gt;中修改&lt;code&gt;Authorized JavaScript origins&lt;/code&gt;，填写本地开发环境和测试环境的地址（支持http://127.0.0.1:xxxx）&lt;/p&gt;</description>
-      <content>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;
-&lt;h1 id=&#34;一准备&#34;&gt;一、准备&lt;/h1&gt;
-&lt;h2 id=&#34;1google-console-search&#34;&gt;1、Google Console Search&lt;/h2&gt;
-&lt;p&gt;证明网站所有权，以使用Google Oauth Client发布到生产环境。
-&lt;a href=&#34;https://search.google.com/search-console&#34;&gt;申请入口&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;2google-oauth-client&#34;&gt;2、Google Oauth Client&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://developers.google.com/identity/protocols/oauth2&#34;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
+      <content>&lt;h1 id=&#34;一整体流程&#34;&gt;一、整体流程&lt;/h1&gt;
+&lt;p&gt;&lt;img alt=&#34;流程示意&#34; src=&#34;/posts/2024-12-26-google-oauth/images/login-google.png&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;二物料准备&#34;&gt;二、物料准备&lt;/h1&gt;
+&lt;h2 id=&#34;1google-oauth-client&#34;&gt;1、Google Oauth Client&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;申请入口：&lt;a href=&#34;https://console.cloud.google.com/&#34;&gt;Google Cloud Platform&lt;/a&gt;，进入&lt;code&gt;APIs &amp;amp; Services&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;左侧导航栏选择&lt;code&gt;Credentials&lt;/code&gt;，点击&lt;code&gt;Create credentials&lt;/code&gt;，选择&lt;code&gt;OAuth client ID&lt;/code&gt;。
+&lt;li&gt;目标：获取到&lt;code&gt;Client ID&lt;/code&gt;和&lt;code&gt;Client Secret&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;官方文档：&lt;a href=&#34;https://developers.google.com/identity/protocols/oauth2&#34;&gt;Oauth2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;AI参考：&lt;a href=&#34;https://chatgpt.com/share/676d7aa9-aad4-8010-beff-e1ad2fe45976&#34;&gt;ChatGPT：GCP OAuth 登录集成&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;入口：&lt;a href=&#34;https://console.cloud.google.com/&#34;&gt;Google Cloud Platform&lt;/a&gt;
 &lt;ul&gt;
-&lt;li&gt;User Type选择&lt;code&gt;External&lt;/code&gt;（对外公开网站，允许任意用户登录）&lt;/li&gt;
-&lt;li&gt;Application Type，这里选择&lt;code&gt;Web application&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;进入&lt;code&gt;APIs &amp;amp; Services&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;进入&lt;code&gt;Credentials&lt;/code&gt;，点击&lt;code&gt;Create credentials&lt;/code&gt;，选择&lt;code&gt;OAuth client ID&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;流程完成后，获取到&lt;code&gt;Client ID&lt;/code&gt;和&lt;code&gt;Client Secret&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;二登录流程示意&#34;&gt;二、登录流程示意&lt;/h1&gt;
-&lt;p&gt;&lt;img alt=&#34;流程示意&#34; src=&#34;/posts/2024-12-26-google-oauth/images/login-google.png&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2google-console-search&#34;&gt;2、Google Console Search&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;目标：证明网站所有权，用于通过Oauth发布到生产环境的平台审核。&lt;/li&gt;
+&lt;li&gt;入口：&lt;a href=&#34;https://search.google.com/search-console&#34;&gt;Google Search Console&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;三关键开发项&#34;&gt;三、关键开发项&lt;/h1&gt;
 &lt;h2 id=&#34;1-前端sdk接入&#34;&gt;1、 前端SDK接入&lt;/h2&gt;
-&lt;p&gt;&lt;img alt=&#34;登录按钮&#34; src=&#34;/posts/2024-12-26-google-oauth/images/login-google-button.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;接入上述按钮，参考：&lt;a href=&#34;https://www.npmjs.com/package/@react-oauth/google&#34;&gt;@react-oauth/google&lt;/a&gt;，过程中需要传入&lt;code&gt;Client ID&lt;/code&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;效果：&lt;img alt=&#34;登录按钮&#34; src=&#34;/posts/2024-12-26-google-oauth/images/login-google-button.png&#34;&gt;&lt;/li&gt;
+&lt;li&gt;依赖：&lt;code&gt;Oauth Client ID&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;参考：&lt;a href=&#34;https://www.npmjs.com/package/@react-oauth/google&#34;&gt;@react-oauth/google&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;import&lt;/span&gt; {&lt;span style=&#34;color:#a6e22e&#34;&gt;GoogleOAuthProvider&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;GoogleLogin&lt;/span&gt;} &lt;span style=&#34;color:#a6e22e&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;@react-oauth/google&amp;#39;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;GoogleLoginComponent&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; () =&amp;gt; {
@@ -94,13 +126,35 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;GoogleOAuthProvider&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    );
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;};
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-服务端登录接口主要逻辑&#34;&gt;2、 服务端登录接口主要逻辑&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-服务端接口&#34;&gt;2、 服务端接口&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;请求&lt;code&gt;https://oauth2.googleapis.com/tokeninfo&lt;/code&gt;, 通过前端传入的&lt;code&gt;Credential&lt;/code&gt;，获取用户基本信息，其中sub可作为谷歌用户ID，见&lt;a href=&#34;https://cloud.google.com/docs/authentication/token-types?hl=zh-cn#id&#34;&gt;官方说明&lt;/a&gt;。&lt;/li&gt;
-&lt;li&gt;根据sub，查询用户（触发新老用户逻辑）。&lt;/li&gt;
-&lt;li&gt;处理Session，返回业务登录凭据。&lt;/li&gt;
+&lt;li&gt;接收参数
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;idToken&lt;/code&gt;：前端从SDK获取的&lt;code&gt;Credentials&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1 id=&#34;三开发发布&#34;&gt;三、开发&amp;amp;发布&lt;/h1&gt;
+&lt;/li&gt;
+&lt;li&gt;验证&lt;code&gt;Credentials&lt;/code&gt;，请求&lt;code&gt;https://oauth2.googleapis.com/tokeninfo&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;接口文档：&lt;a href=&#34;https://cloud.google.com/docs/authentication/token-types?hl=zh-cn#id&#34;&gt;官方&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;返回主要信息：
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sub&lt;/code&gt;：用户ID（可做为身份识别ID）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;name&lt;/code&gt;：用户名称&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;picture&lt;/code&gt;：用户头像&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;given_name&lt;/code&gt;：用户名&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;family_name&lt;/code&gt;：用户姓氏&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;email&lt;/code&gt;：用户邮箱&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;email_verified&lt;/code&gt;：邮箱是否验证&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;aud&lt;/code&gt;：Oauth Client ID（需校验）&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;exp&lt;/code&gt;：过期时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;新老用户逻辑：根据&lt;code&gt;sub&lt;/code&gt;查询用户，如果不存在则创建新用户&lt;/li&gt;
+&lt;li&gt;Session处理：返回业务登录凭据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;四开发发布&#34;&gt;四、开发&amp;amp;发布&lt;/h1&gt;
 &lt;h2 id=&#34;1-开发测试&#34;&gt;1、 开发测试&lt;/h2&gt;
 &lt;p&gt;在&lt;a href=&#34;https://console.cloud.google.com/auth/clients&#34;&gt;Google Auth Platform/Client ID for Web application&lt;/a&gt;中修改&lt;code&gt;Authorized JavaScript origins&lt;/code&gt;，填写本地开发环境和测试环境的地址（支持http://127.0.0.1:xxxx）&lt;/p&gt;
 &lt;h2 id=&#34;2-发布正式&#34;&gt;2、 发布正式&lt;/h2&gt;

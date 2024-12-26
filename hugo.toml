@@ -56,14 +56,6 @@ Toc = false
 # can be overridden in a page's front-matter
 TocTitle = ""
 
-
-[params.twitter]
-# set Twitter handles for Twitter cards
-# see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started#card-and-content-attribution
-# do not include @
-creator = ""
-site = ""
-
 [languages]
 [languages.en]
 languageName = "English"
