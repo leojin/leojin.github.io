@@ -1,0 +1,55 @@
+@startuml
+actor Webview as web
+entity "Google SDK" as sdk
+participant "Google Server" as gcp
+participant "Business Server" as business
+database "Database" as db
+database "Session" as session
+
+skinparam sequenceMessageAlign center
+
+group Google SDK Login Logic
+web -->> sdk: **Click**
+sdk -->> gcp: **Request**: login
+gcp -->> sdk: **Response**: <font color=red>credential</font>
+sdk -->> web: **Callback**: <font color=red>credential</font>
+end
+
+group Business Login Logic
+
+web -> business: **Request**: <font color=red>credential</font>
+
+    group Check Google Credential
+    business -> gcp: **Request**: id_token(<font color=red>credential</font>)
+    note over gcp
+    GET https://oauth2.googleapis.com/tokeninfo?id_token=<font color=red>credential</font>
+    end note
+    gcp -> business: **Response**: user_info(<font color=green>sub_id</font>, name, email, ...)
+    end
+
+    group Query/Insert User
+    business -> db: **Search/Insert**: user
+    db --> business: **Result**: user_info
+    end
+
+    group Generate Session
+    business -> business: **Generate**: session_token
+    business -> session: **Set**: Pair(session_token, user_id)
+    end
+
+business -> web: **Response**: <font color=blue>session_token</font>
+
+end
+
+group Business Auth Logic
+
+web -> business: **Request**: <font color=blue>session_token</font>
+business -> session: **Search**: <font color=blue>session_token</font>
+session -> business: **Result**: user_id
+business -> db: **Search**: user_id
+db --> business: **Result**: user_info
+business -> web: **Response**: user_info
+
+end
+
+@enduml
